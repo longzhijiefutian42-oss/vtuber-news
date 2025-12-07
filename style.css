@@ -1,0 +1,497 @@
+/* ===========================
+   ベース設定
+   =========================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background: #F8F5EF; /* 和紙っぽい */
+  color: #1A1A1A;
+  line-height: 1.7;
+}
+
+/* ページタイプごとの余白 */
+
+.page-portal,
+.page-news {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================
+   ヘッダー
+   =========================== */
+
+.site-header {
+  background: linear-gradient(90deg, #1F2933, #111827);
+  color: #F9FAFB;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.site-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.18em;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.logo-sub {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.logo-tagline {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: #E5E7EB;
+  opacity: 0.9;
+}
+
+.site-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.nav-link {
+  color: #E5E7EB;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  border-color: #D6B86A;
+  color: #F9FAFB;
+}
+
+/* ===========================
+   フッター
+   =========================== */
+
+.site-footer {
+  margin-top: auto;
+  background: #111827;
+  color: #9CA3AF;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 0.85rem;
+}
+
+/* ===========================
+   トップページ（ポータル）
+   =========================== */
+
+.portal-main {
+  max-width: 900px;
+  margin: 24px auto 40px;
+  padding: 0 16px 40px;
+}
+
+.hero {
+  padding: 28px 24px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(214, 184, 106, 0.35);
+  pointer-events: none;
+}
+
+.hero-lead {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.hero-text {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  color: #4B5563;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #C7463C, #D6B86A);
+  color: #F9FAFB;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: #F3F4F6;
+  color: #374151;
+  border: 1px solid #D1D5DB;
+}
+
+.btn-secondary:hover {
+  background: #E5E7EB;
+}
+
+.portal-section {
+  margin-top: 24px;
+}
+
+/* ===========================
+   ニュースページ
+   =========================== */
+
+.news-main {
+  max-width: 900px;
+  margin: 24px auto 40px;
+  padding: 0 16px 40px;
+}
+
+.page-heading {
+  margin-bottom: 16px;
+}
+
+.page-title {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.page-intro {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4B5563;
+}
+
+.news-section {
+  margin-top: 24px;
+}
+
+.section-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+/* ===========================
+   ニュースカード
+   =========================== */
+
+.cards-container {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(214,184,106,0.25);
+  pointer-events: none;
+}
+
+.card .category {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #F3F4F6;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.card h3 {
+  margin: 4px 0 6px;
+  font-size: 1.0rem;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.card .snippet {
+  font-size: 0.9rem;
+  color: #4B5563;
+  margin: 0 0 8px;
+}
+
+.card a {
+  font-size: 0.85rem;
+  color: #C7463C;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card .date {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #6B7280;
+}
+
+/* カテゴリ別の左線 */
+
+.cat-hololive   { border-left: 4px solid #00AEEF; }
+.cat-nijisanji  { border-left: 4px solid #E31E28; }
+.cat-indie      { border-left: 4px solid #32CD32; }
+.cat-collab     { border-left: 4px solid #FF8C00; }
+.cat-global     { border-left: 4px solid #8000FF; }
+.cat-trouble    { border-left: 4px solid #111827; }
+.cat-none       { border-left: 4px solid rgba(0,0,0,0.12); }
+
+/* ===========================
+   BAMC / SNSブロック
+   =========================== */
+
+.bamc-block,
+.sns-block {
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  font-size: 0.9rem;
+}
+
+.bamc-block strong {
+  color: #111827;
+}
+
+/* ===========================
+   callout（note / LINE）
+   =========================== */
+
+.callout {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 14px 16px;
+  border-radius: 12px;
+  border-left: 4px solid #CBB26A;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.note-callout {
+  border-left-color: #8FB3FF;
+}
+
+.line-callout {
+  border-left-color: #7FDE8A;
+}
+
+.callout-title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.callout p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4B5563;
+}
+
+.callout-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: #C7463C;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.callout-link:hover {
+  color: #D6B86A;
+}
+
+/* ===========================
+   Xへの帰り道
+   =========================== */
+
+.return-x {
+  margin-top: 28px;
+  padding: 14px 16px;
+  border-left: 4px solid #C7463C;
+  background: #FFFFFF;          /* 白背景に変更 */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.return-x a {
+  font-size: 1rem;
+  color: #C7463C;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.return-x a:hover {
+  color: #D6B86A;
+}
+
+.return-x .x-comment {
+  color: #6B7280;
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ===========================
+   アーカイブページ用の軽いスタイル
+   （既存の archive/index.html に足しても違和感出ないよう控えめに）
+   =========================== */
+
+.archive-container {
+  max-width: 900px;
+  margin: 24px auto 40px;
+  padding: 0 16px 40px;
+}
+
+.archive-header h1 {
+  margin: 0 0 8px;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.archive-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4B5563;
+}
+
+.archive-list {
+  margin-top: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.archive-item {
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  padding: 10px 12px;
+  border-left: 4px solid #667EEA;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.archive-item a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #111827;
+  font-size: 0.95rem;
+}
+
+.archive-item a span {
+  font-size: 0.9rem;
+}
+
+.archive-arrow {
+  font-size: 1.1rem;
+  color: #667EEA;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #9CA3AF;
+  text-decoration: none;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.back-button:hover {
+  background: #E5E7EB;
+}
+
+.kinji-comment {
+  margin-top: 12px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  background: rgba(26, 26, 26, 0.05);
+  border-left: 3px solid #D6B86A;
+  color: #3B3B3B;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  line-height: 1.6;
+}
+
+
+/* ===========================
+   レスポンシブ
+   =========================== */
+
+@media (max-width: 768px) {
+  .site-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding: 20px 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+}
