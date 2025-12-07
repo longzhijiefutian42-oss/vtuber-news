@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>金次の寺子屋 – VTuber備忘録 –</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
+    }
+
+    .site-header {
+      background: #111;
+      border-bottom: 1px solid #333;
+      padding: 12px 16px;
+    }
+
+    .site-title-group {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .logo-main {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0.06em;
+    }
+
+    .logo-sub, .logo-tagline {
+      margin: 2px 0;
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    .page-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 12px 40px;
+    }
+
+    /* カテゴリタブ（横スクロール） */
+
+    .category-tabs-wrapper {
+      margin: 10px 0 4px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .category-tabs {
+      display: inline-flex;
+      gap: 8px;
+      padding: 4px 0 4px;
+      min-width: 100%;
+    }
+
+    .category-tab {
+      flex-shrink: 0;
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 999px;
+      border: 1px solid #444;
+      background: #181818;
+      color: #eee;
+      white-space: nowrap;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .category-tab.active {
+      background: #d4b15f;
+      border-color: #f1d07a;
+      color: #111;
+      font-weight: 600;
+    }
+
+    .tab-label {
+      pointer-events: none;
+    }
+
+    .tab-count {
+      font-size: 11px;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    /* 抽出タグ（pill） */
+
+    .tag-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 12px;
+      font-size: 11px;
+    }
+
+    .tag-pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #1c1c1c;
+      border: 1px solid #333;
+      color: #ccc;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .tag-pill.active {
+      background: #3b2c15;
+      border-color: #d4b15f;
+      color: #f9f5e8;
+    }
+
+    .section-title {
+      margin: 8px 0 4px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* 記事カード */
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card {
+      position: relative;
+      padding: 10px 12px 10px;
+      border-radius: 10px;
+      background: #141414;
+      border: 1px solid #262626;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .card-category {
+      font-size: 11px;
+      font-weight: 600;
+      color: #f1d07a;
+    }
+
+    .card-date {
+      font-size: 10px;
+      color: #999;
+    }
+
+    .card-title {
+      margin: 4px 0 4px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .card-summary {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #ddd;
+      margin: 4px 0 6px;
+    }
+
+    .card-summary li {
+      margin-left: 1.2em;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 10px;
+    }
+
+    .card-tag {
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #1d1d1d;
+      border: 1px solid #333;
+    }
+
+    .card-actions {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .btn-read {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #444;
+      background: transparent;
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .btn-xshare {
+      font-size: 11px;
+      padding: 3px 6px;
+      border-radius: 999px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .page-container {
+        padding: 8px 8px 32px;
+      }
+      .card {
+        padding: 8px 10px;
+      }
+      .logo-main {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-title-group">
+    <h1 class="logo-main">金次の寺子屋 – VTuber備忘録 –</h1>
+    <p class="logo-sub">備忘録 − キンジの参謀所 −</p>
+    <p class="logo-tagline">明日を拓く者への道標</p>
+  </div>
+</header>
+
+<main class="page-container">
+
+  <!-- カテゴリタブ -->
+  <div class="category-tabs-wrapper">
+    <div class="category-tabs" id="categoryTabs">
+      <button class="category-tab active" data-filter="all">
+        <span class="tab-label">すべて</span><span class="tab-count"></span>
+      </button>
+      <button class="category-tab" data-filter="ホロライブ">
+        <span class="tab-label">ホロ</span><span class="tab-count"></span>
+      </button>
+      <button class="category-tab" data-filter="にじさんじ">
+        <span class="tab-label">にじ</span><span class="tab-count"></span>
+      </button>
+      <button class="category-tab" data-filter="企業コラボ">
+        <span class="tab-label">企業</span><span class="tab-count"></span>
+      </button>
+      <button class="category-tab" data-filter="個人VTuber">
+        <span class="tab-label">個人</span><span class="tab-count"></span>
+      </button>
+      <button class="category-tab" data-filter="海外VTuber">
+        <span class="tab-label">海外</span><span class="tab-count"></span>
+      </button>
+      <button class="category-tab" data-filter="トラブル／炎上">
+        <span class="tab-label">炎上</span><span class="tab-count"></span>
+      </button>
+      <button class="category-tab" data-filter="その他">
+        <span class="tab-label">その他</span><span class="tab-count"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- タグバー（JSで自動生成） -->
+  <div class="tag-bar" id="tagBar"></div>
+
+  <!-- ニュース一覧 -->
+  <section>
+    <h2 class="section-title">本日の備忘録</h2>
+    <div class="cards-container" id="cardsContainer">
+      {{CARDS}}
+    </div>
+  </section>
+
+  <!-- BAMC -->
+  <section style="margin-top: 24px;">
+    <h2 class="section-title">本日のざっくり分析（BAMC）</h2>
+    <div class="bamc-block">
+      {{BAMC}}
+    </div>
+  </section>
+
+  <!-- 導線 -->
+  <section style="margin-top: 24px; font-size: 12px;">
+    <p>📝 寺子屋手記（note）：<a href="{{NOTE_URL}}" target="_blank">{{NOTE_URL}}</a></p>
+    <p>💬 個別相談（LINE）：<a href="{{LINE_URL}}" target="_blank">{{LINE_URL}}</a></p>
+    <p>✖ 情報発信（X）：<a href="{{X_URL}}" target="_blank">{{X_URL}}</a></p>
+  </section>
+
+</main>
+
+<footer class="site-footer" style="text-align:center; padding: 10px 0 20px; font-size: 11px; color:#777;">
+  <p>© 金次の寺子屋 – VTuber備忘録 –</p>
+</footer>
+
+<script>
+  function shareToX(url, title) {
+    const text = encodeURIComponent(title);
+    const shareUrl = encodeURIComponent(url);
+    const xUrl = `https://x.com/intent/tweet?text=${text}&url=${shareUrl}`;
+    window.open(xUrl, "_blank");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".category-tab");
+    const cards = document.querySelectorAll(".card");
+    const tagBar = document.getElementById("tagBar");
+
+    let activeCategory = "all";
+    let activeTag = null;
+
+    // 件数カウント（D：UX強化）
+    const counts = { all: 0 };
+    cards.forEach(card => {
+      counts.all += 1;
+      const cat = card.dataset.category || "その他";
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    tabs.forEach(tab => {
+      const filter = tab.dataset.filter;
+      const countSpan = tab.querySelector(".tab-count");
+      const num = filter === "all" ? (counts.all || 0) : (counts[filter] || 0);
+      if (countSpan) {
+        countSpan.textContent = num ? ` (${num})` : "";
+      }
+    });
+
+    // タグ一覧をカードから自動生成（B）
+    const tagSet = new Set();
+    cards.forEach(card => {
+      const t = card.dataset.tags || "";
+      t.split(",").map(x => x.trim()).filter(Boolean).forEach(tag => tagSet.add(tag));
+    });
+
+    tagSet.forEach(tag => {
+      const pill = document.createElement("span");
+      pill.className = "tag-pill";
+      pill.dataset.tag = tag;
+      pill.textContent = tag;
+      tagBar.appendChild(pill);
+    });
+
+    function applyFilters() {
+      cards.forEach(card => {
+        const cat = card.dataset.category || "その他";
+        const tagsAttr = card.dataset.tags || "";
+        const tags = tagsAttr.split(",").map(t => t.trim()).filter(Boolean);
+
+        const catOk = (activeCategory === "all" || cat === activeCategory);
+        const tagOk = (!activeTag || tags.includes(activeTag));
+
+        card.style.display = (catOk && tagOk) ? "" : "none";
+      });
+    }
+
+    // カテゴリタブクリック
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const filter = tab.dataset.filter;
+        activeCategory = filter;
+
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        applyFilters();
+      });
+    });
+
+    // タグフィルタ（トグル）
+    tagBar.addEventListener("click", (e) => {
+      const pill = e.target.closest(".tag-pill");
+      if (!pill) return;
+
+      if (pill.classList.contains("active")) {
+        pill.classList.remove("active");
+        activeTag = null;
+      } else {
+        document.querySelectorAll(".tag-pill.active").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        activeTag = pill.dataset.tag;
+      }
+      applyFilters();
+    });
+  });
+</script>
+
+</body>
+</html>
