@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>VTuberニュースポータル</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .header-nav {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .header-nav a {
+            color: white;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .header-nav a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .bamc a {
+            color: #818cf8;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .bamc a:hover {
+            text-decoration: underline;
+        }
+        .bamc {
+            line-height: 2;
+        }
+        
+        /* 外部リンクセクション */
+        .external-links {
+            max-width: 1400px;
+            margin: 3rem auto 2rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .external-links h2 {
+            color: #e0e7ff;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .link-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.5s;
+        }
+        
+        .link-button:hover::before {
+            left: 100%;
+        }
+        
+        /* noteボタン */
+        .note-button {
+            background: linear-gradient(135deg, #41c9b4 0%, #42e695 100%);
+            color: white;
+            border-color: rgba(65, 201, 180, 0.5);
+            box-shadow: 0 0 20px rgba(65, 201, 180, 0.5);
+        }
+        
+        .note-button:hover {
+            box-shadow: 0 0 30px rgba(65, 201, 180, 0.8), 0 10px 30px rgba(65, 201, 180, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        /* LINEボタン */
+        .line-button {
+            background: linear-gradient(135deg, #00b900 0%, #00e600 100%);
+            color: white;
+            border-color: rgba(0, 185, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 185, 0, 0.5);
+        }
+        
+        .line-button:hover {
+            box-shadow: 0 0 30px rgba(0, 185, 0, 0.8), 0 10px 30px rgba(0, 185, 0, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .link-icon {
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .link-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .link-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>VTuberニュースポータル</h1>
+    <div class="header-nav">
+        <a href="archive/index.html">📚 過去のニュースを見る（アーカイブ）</a>
+    </div>
+    <div class="container">
+                <div class="card cat-none">
+            <span class="category">その他</span>
+            <h3>【あのVTuberに花束を】「バーチャルさんはみている」狂想曲 ...</h3>
+            <p class="snippet">現在、アニメイトタイムズにて、2019年に放映されたアニメ「バーチャルさんはみている」の1～12話が、期間限定で無料配信されています。公開期間は12月8日12時までです。（TVアニメ「バーチャルさんはみている」公式サイトより）ライター：たまごまごオタク・サブカル・VTuber… ...</p>
+            <a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fnlab.itmedia.co.jp%2fcont%2farticles%2f3626969%2f&c=18421429672411651115&mkt=ja-jp" target="_blank">記事を読む →</a>
+            <span class="date">Sat, 22 Nov 2025 04:00:00 GMT</span>
+        </div>
+        <div class="card cat-none">
+            <span class="category">その他</span>
+            <h3>天野ひろゆき、当日に代役MCに「今朝聞いた」インフルエンザの ...</h3>
+            <p class="snippet">お笑いコンビ「キャイ～ン」の天野ひろゆきとフリーの中川安奈アナウンサーが２２日、横浜市のぴあアリーナＭＭで「ＦＵＵＲＹＵＵＦＥＳ　５．０　２０２５」でＭＣを務めた。 ＶＴｕｂｅｒが集結するフェス。ＫｉｚｕｎａＡＩらバーチャルの世界で活躍するタレントが、この日限りのステージを届けた。</p>
+            <a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fwww.msn.com%2fja-jp%2fnews%2fentertainment%2f%25E5%25A4%25A9%25E9%2587%258E%25E3%2581%25B2%25E3%2582%258D%25E3%2582%2586%25E3%2581%258D-%25E5%25BD%2593%25E6%2597%25A5%25E3%2581%25AB%25E4%25BB%25A3%25E5%25BD%25B9%25EF%25BD%258D%25EF%25BD%2583%25E3%2581%25AB-%25E4%25BB%258A%25E6%259C%259D%25E8%2581%259E%25E3%2581%2584%25E3%2581%259F-%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2595%25E3%2583%25AB%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B6%25E3%2581%25AE%25E9%2596%25A2%25E6%25A0%25B9%25E5%258B%25A4%25E3%2581%25AB%25E4%25BB%25A3%25E3%2582%258F%25E3%2582%258A%25EF%25BD%2596%25EF%25BD%2594%25EF%25BD%2595%25EF%25BD%2582%25EF%25BD%2585%25EF%25BD%2592%25E3%2583%2595%25E3%2582%25A7%25E3%2582%25B9%25E3%2582%2592%25E9%2580%25B2%25E8%25A1%258C%2far-AA1QWTWP&c=10935919784197083350&mkt=ja-jp" target="_blank">記事を読む →</a>
+            <span class="date">Sat, 22 Nov 2025 05:32:00 GMT</span>
+        </div>
+        <div class="card cat-hololive">
+            <span class="category">ホロライブ</span>
+            <h3>VTuber・AZKiがソロライブ開催「新しい未来を歩いていきたい ...</h3>
+            <p class="snippet">ＡＺＫｉの新章を感じさせるステージとなった。「これまで歩んできた軌跡。これから歩んでいく未来。その全てをみんなと一緒に一つの物語としてつないでいきます」。今年リリースした新曲「未来カンパネラ」や、２０１８年にリリースしたデビュー曲「Ｃｒｅａｔｉｎｇ　ｗｏｒｌｄ」など新旧織り交ぜた２０曲を歌唱。同期デ...</p>
+            <a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fwww.msn.com%2fja-jp%2fnews%2fentertainment%2f%25EF%25BD%2596%25EF%25BD%2594%25EF%25BD%2595%25EF%25BD%2582%25EF%25BD%2585%25EF%25BD%2592-%25EF%25BD%2581%25EF%25BD%259A%25EF%25BD%258B%25EF%25BD%2589%25E3%2581%258C%25E3%2582%25BD%25E3%2583%25AD%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2596%25E9%2596%258B%25E5%2582%25AC-%25E6%2596%25B0%25E3%2581%2597%25E3%2581%2584%25E6%259C%25AA%25E6%259D%25A5%25E3%2582%2592%25E6%25AD%25A9%25E3%2581%2584%25E3%2581%25A6%25E3%2581%2584%25E3%2581%258D%25E3%2581%259F%25E3%2581%2584%2far-AA1QL17p&c=7049564005287049893&mkt=ja-jp" target="_blank">記事を読む →</a>
+            <span class="date">Wed, 19 Nov 2025 11:00:00 GMT</span>
+        </div>
+        <div class="card cat-none">
+            <span class="category">その他</span>
+            <h3>【会いに行けるアイドルVTuber】華埜エレノア、初の誕生日記念 ...</h3>
+            <p class="snippet">［株式会社Blackbox］デビュー後初の誕生日を祝う完全受注生産グッズが販売開始！同月にはクインテのリアルミニライブも開催決定。株式会社Blackbox（本社：東京都新宿区、代表取締役CEO：坂本龍優）が運営する、“会いに行けるアイドルVTuberプロダクション”「ラブボックス」所属のアイドルVT...</p>
+            <a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fwww.jiji.com%2fjc%2farticle%3fk%3d000000092.000109030%26g%3dprt&c=12568251026869330584&mkt=ja-jp" target="_blank">記事を読む →</a>
+            <span class="date">Fri, 21 Nov 2025 06:17:00 GMT</span>
+        </div>
+        <div class="card cat-none">
+            <span class="category">その他</span>
+            <h3>後藤真希 VTuberのフェスに「ぶいごま」と登場「やっと一緒に歌え ...</h3>
+            <p class="snippet">元モーニング娘。でタレントの後藤真希（４０）が２２日、神奈川・ぴあアリーナＭＭで行われた「ＦＵＵＲＹＵＵＦＥＳ ５．０．２０２５」に登場した。 「ＦＵＵＲＹＵＵＦＥＳ」は「風流」をテーマに、リアルとバーチャルの融合を通じて、日本文化を世界に届けるステージ。</p>
+            <a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fwww.msn.com%2fja-jp%2fnews%2fentertainment%2f%25E5%25BE%258C%25E8%2597%25A4%25E7%259C%259F%25E5%25B8%258C-%25EF%25BD%2596%25EF%25BD%2594%25EF%25BD%2595%25EF%25BD%2582%25EF%25BD%2585%25EF%25BD%2592%25E3%2581%25AE%25E3%2583%2595%25E3%2582%25A7%25E3%2582%25B9%25E3%2581%25AB-%25E3%2581%25B6%25E3%2581%2584%25E3%2581%2594%25E3%2581%25BE-%25E3%2581%25A8%25E7%2599%25BB%25E5%25A0%25B4-%25E3%2582%2584%25E3%2581%25A3%25E3%2581%25A8%25E4%25B8%2580%25E7%25B7%2592%25E3%2581%25AB%25E6%25AD%258C%25E3%2581%2588%25E3%2581%25BE%25E3%2581%2597%25E3%2581%259F%25E3%2581%25AD%2far-AA1QWA54&c=14746678431733579395&mkt=ja-jp" target="_blank">記事を読む →</a>
+            <span class="date">Sat, 22 Nov 2025 03:39:32 GMT</span>
+        </div>
+        <div class="card cat-none">
+            <span class="category">その他</span>
+            <h3>夜のお寺で、VTuberとホラゲを遊んできた話。『かくれ鬼』攻略の ...</h3>
+            <p class="snippet">【夜のお寺×ホラゲ】住職からは宗教とゲームの観点からホラーの核心に迫るお話も。インディーゲーム中心に『サイレントヒル f』も展示されたHORROR GAME SHOWレポ【電撃インディー】 ...</p>
+            <a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fdengekionline.com%2farticle%2f202511%2f58186&c=14313376319783817948&mkt=ja-jp" target="_blank">記事を読む →</a>
+            <span class="date">Thu, 20 Nov 2025 18:11:00 GMT</span>
+        </div>
+
+    </div>
+    <h2>BAMC分析</h2>
+    <div class="bamc">
+        <strong>Brand：</strong>VTuber業界の多様な動きが活発化しています<br>
+<strong>Attention：</strong>本日は6件の注目ニュースがあります<br>
+<strong>Monetize：</strong>企業コラボやイベントなど収益化の機会が増加中<br>
+<strong>Community：</strong>ファンコミュニティの盛り上がりが継続しています<br>
+<br>
+<strong>【主なトピック】</strong><br>
+・<a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fnlab.itmedia.co.jp%2fcont%2farticles%2f3626969%2f&c=18421429672411651115&mkt=ja-jp" target="_blank">【あのVTuberに花束を】「バーチャルさんはみている」狂想曲 ...</a><br>
+・<a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fwww.msn.com%2fja-jp%2fnews%2fentertainment%2f%25E5%25A4%25A9%25E9%2587%258E%25E3%2581%25B2%25E3%2582%258D%25E3%2582%2586%25E3%2581%258D-%25E5%25BD%2593%25E6%2597%25A5%25E3%2581%25AB%25E4%25BB%25A3%25E5%25BD%25B9%25EF%25BD%258D%25EF%25BD%2583%25E3%2581%25AB-%25E4%25BB%258A%25E6%259C%259D%25E8%2581%259E%25E3%2581%2584%25E3%2581%259F-%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2595%25E3%2583%25AB%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B6%25E3%2581%25AE%25E9%2596%25A2%25E6%25A0%25B9%25E5%258B%25A4%25E3%2581%25AB%25E4%25BB%25A3%25E3%2582%258F%25E3%2582%258A%25EF%25BD%2596%25EF%25BD%2594%25EF%25BD%2595%25EF%25BD%2582%25EF%25BD%2585%25EF%25BD%2592%25E3%2583%2595%25E3%2582%25A7%25E3%2582%25B9%25E3%2582%2592%25E9%2580%25B2%25E8%25A1%258C%2far-AA1QWTWP&c=10935919784197083350&mkt=ja-jp" target="_blank">天野ひろゆき、当日に代役MCに「今朝聞いた」インフルエンザの ...</a><br>
+・<a href="http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6921dc4936a64959a50df01eb448d5bb&url=https%3a%2f%2fwww.msn.com%2fja-jp%2fnews%2fentertainment%2f%25EF%25BD%2596%25EF%25BD%2594%25EF%25BD%2595%25EF%25BD%2582%25EF%25BD%2585%25EF%25BD%2592-%25EF%25BD%2581%25EF%25BD%259A%25EF%25BD%258B%25EF%25BD%2589%25E3%2581%258C%25E3%2582%25BD%25E3%2583%25AD%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2596%25E9%2596%258B%25E5%2582%25AC-%25E6%2596%25B0%25E3%2581%2597%25E3%2581%2584%25E6%259C%25AA%25E6%259D%25A5%25E3%2582%2592%25E6%25AD%25A9%25E3%2581%2584%25E3%2581%25A6%25E3%2581%2584%25E3%2581%258D%25E3%2581%259F%25E3%2581%2584%2far-AA1QL17p&c=7049564005287049893&mkt=ja-jp" target="_blank">VTuber・AZKiがソロライブ開催「新しい未来を歩いていきたい ...</a><br>
+
+    </div>
+    
+    <div class="external-links">
+        <h2>📢 もっと詳しく知りたい方へ</h2>
+        <div class="link-buttons">
+            <a href="https://note.com/vtuber_consult" target="_blank" class="link-button note-button">
+                <span class="link-icon">📝</span>
+                <span>noteで詳しく読む</span>
+            </a>
+            <a href="https://lin.ee/7q3yph5" target="_blank" class="link-button line-button">
+                <span class="link-icon">💬</span>
+                <span>公式LINEで最新情報を受け取る</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
